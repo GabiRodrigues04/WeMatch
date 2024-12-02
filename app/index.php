@@ -9,8 +9,9 @@ switch($route)
     case '/':
         GroupsController::home();
         break;
-    
-
+    case '/creategroup':
+        GroupsController::insert();
+        break;
     default:
         echo "Error 404";
         break;
