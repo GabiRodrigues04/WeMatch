@@ -9,13 +9,16 @@
 }
 
 main {
-    background: #fafafa;
+    height: 100vh;
+    width: 100vw;
+    background: rgb(189,224,255);
+    background: linear-gradient(0deg, rgba(189,224,255,1) 0%, rgba(250,250,250,1) 100%);
 }
 
 .content{
     position: relative; 
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,6 +34,7 @@ main {
     flex-direction: column;
     margin-top: -72px;
     margin-left: 64px;
+    z-index: inherit;
 }
 
 .forms > h1 {
@@ -46,13 +50,15 @@ main {
 }
 
 .visible-form {
-    border: 1px solid #bebebe;
+    background-color: #fafafa;
+    border: 1px solid #1a80e06c;
     display: flex;
     flex-direction: column;
     border-radius: 12px;
     gap: 12px;
     padding: 36px 64px;
     align-items: center;
+    box-shadow: 10px 6px 10px #aed8ff;
     
 }
 
@@ -80,6 +86,7 @@ main {
     border: 1px solid #bebebe;
     border-radius: 8px;
     font-size: 16px;
+    margin-bottom: 12px;
 }
 
 .groupform textarea {
@@ -102,12 +109,34 @@ main {
 .groupform button {
     background: #1a81e0;
     color:#fafafa;
-    font-size: 20px;
+    font-size: 16px;
     padding: 16px;
     border: none;
     border-radius: 12px;
     margin-top: 10px;
     cursor: pointer;
+}
+
+.groupform button:hover {
+    background: #369eff;
+}
+
+.memberlist {
+    display: flex; 
+    flex-direction: column;
+    gap: 8px;
+    max-height: 200px; 
+    overflow-y: auto;
+    padding: 8px;
+    border: 1px solid #bebebe; 
+    border-radius: 8px;
+    width: 400px; 
+    background-color:#f8f8f8;
+}
+
+.memberlist input {
+    width: 350px;
+    margin-left: 8px;
 }
 
 .introduction {
@@ -118,7 +147,7 @@ main {
     align-items: center;
     justify-content: center;
     margin-right: 64px;
-    
+    margin-bottom: 64px;
 }
 
 .introduction h1 {
@@ -131,7 +160,7 @@ main {
     font-size: 20px;
 }
 
-footer {
+.decoration {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -139,10 +168,28 @@ footer {
     height: 250; 
     overflow: hidden;
     display: flex;
-    left: 35px;
+
 }
 
-footer img {
+.decoration img {
+    margin-left:30px ;
     width: 1000px; 
     height: 242; 
+}
+
+button.btnadd {
+    border-radius: 12px;
+    font-size: 32px;
+    padding: 2px 12px;
+}
+
+.btngroups {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    z-index: 2;
+    font-weight: 600;
+    color:#002a53;
 }

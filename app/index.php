@@ -12,6 +12,9 @@ switch($route)
     case '/creategroup':
         GroupsController::insert();
         break;
+    case '/viewgroup':
+        GroupsController::viewgroup();
+        break;
     default:
         echo "Error 404";
         break;

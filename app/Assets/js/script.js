@@ -1,7 +1,7 @@
 function validateForm(number) {
     let isValid = true;
 
-    switch(number) {
+    switch (number) {
         case 1:
             const hostname = document.getElementById('hostname').value;
             const groupname = document.getElementById('groupname').value;
@@ -17,6 +17,15 @@ function validateForm(number) {
 
             if (!celebrationdate) {
                 alert("Por favor, preencha a data de celebração!");
+                isValid = false;
+            }
+            break;
+
+        case 3:
+            const inputs = document.querySelectorAll('.memberlist input');
+            const participants = Array.from(inputs).filter(input => input.value.trim() !== "");
+            if (participants.length < 2) {
+                alert("O grupo deve conter pelo menos 3 participantes!");
                 isValid = false;
             }
             break;
@@ -57,7 +66,7 @@ function changeDiv(form,number) {
 
 function sendHost() {
     const hostname = document.getElementById('hostname').value;
-    const hostInput = document.getElementById('host');
+    const hostInput = document.getElementById('hostname');
     hostInput.value = hostname;
 }
 
@@ -68,9 +77,10 @@ function createInput() {
     hmMembers++;
 
     const element = document.createElement('input');
-    element.setAttribute('name','member' + hmMembers);
-    element.setAttribute('id','member' + hmMembers);
-    element.setAttribute('placeholder','Nome do membro ' + hmMembers);
-
+    element.setAttribute('name', 'member' + hmMembers);
+    element.setAttribute('id', 'member' + hmMembers);
+    element.setAttribute('placeholder', 'Nome do membro ' + hmMembers);
+    element.setAttribute('type', 'text');
+    element.required = true;
     memberlist.appendChild(element);
 }

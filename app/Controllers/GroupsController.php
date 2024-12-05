@@ -19,9 +19,21 @@ class GroupsController {
         $model-> celebration_date = $_POST['celebrationdate'];
         $model-> budget = $_POST['budget'];
 
+        $participants = [];
+        foreach ($_POST as $key => $value) {
+        if (strpos($key, 'member') === 0 && !empty($value)) {
+            $participants[] = $value;
+        }}
+
+        $model->participants = $participants;
+
         $model->create();
 
         header("Location: /wematch/app/");
+    }
+
+    public static function viewgroup() {
+        include 'Views/Viewgroup.php';
     }
 
 }
